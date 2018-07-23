@@ -46,6 +46,8 @@ end-time - "" "" "" ""
 ## Other
 Encrypting package to encrypt user passwords (BCRYPT DID NOT WORK ON MY COMPUTER)
 
+Concerns: How do I keep checking for conflicts short? I don't want to iterate through a gigantic list for every new class.
+
 # Weekly Milestones
 ## Week 1 - Usable Build
 ### Monday 
