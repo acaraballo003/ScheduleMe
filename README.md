@@ -42,11 +42,20 @@ end-time - "" "" "" ""
 ## Views
 
 ## Routes
+GET '/' - renders the Welcome page where users will be required to sign in
+GET '/home' - renders the home screen after users sign in
+GET '/newclass' - renders a page where users will be able to create a new class
+GET '/schedule' - renders a page where users will be able to see both a list of their classes and add a class from their list of classes
+                  to the schedule
+                  
+POST '/newclass' - adds a class to the user's list of classes that they're interested in
+
 
 ## Other
 Encrypting package to encrypt user passwords (BCRYPT DID NOT WORK ON MY COMPUTER)
 
-Concerns: How do I keep checking for conflicts short? I don't want to iterate through a gigantic list for every new class.
+### Concerns:
+How do I keep checking for conflicts short? I don't want to iterate through a gigantic list for every new class. (asynchronus functions maybe.) 
 
 # Weekly Milestones
 ## Week 1 - Usable Build
