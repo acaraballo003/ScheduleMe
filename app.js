@@ -38,4 +38,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// Database setup here
+const mongoose = require('mongoose');
+const mongoURI = 'mongodb://schedule_meB:Th1s.is.My1st4pp@ds147391.mlab.com:47391/schedule_me';
+
+mongoose.connect(mongoURI);
+mongoose.Promise = global.Promise;
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 module.exports = app;
