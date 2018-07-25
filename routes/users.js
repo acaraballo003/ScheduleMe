@@ -17,7 +17,8 @@ router.get('/new', (req, res, next) => {
 });
 
 // create a User
-router.post('/', (res, req, next) => {
+router.post('/', (req, res, next) => {
+  console.log(req.body);
   const user = new User(req.body);
 
   user.save(function(err, user) {
