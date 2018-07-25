@@ -40,7 +40,7 @@ app.use(function(err, req, res, next) {
 
 // Database setup here
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://schedule_meB:Th1s.is.My1st4pp@ds147391.mlab.com:47391/schedule_me';
+const mongoURI = 'mongodb://dbUser:P.4ss.W0rd@ds147391.mlab.com:47391/schedule_me';
 
 mongoose.connect(mongoURI);
 mongoose.Promise = global.Promise;
