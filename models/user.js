@@ -22,5 +22,27 @@ UserSchema.pre('save', function(next) {
 });
 
 
+// This is what helps authenticate a user upon login
+UserSchema.statics.authenticate = function(username, password, next) {
+  User.findOne({ username: username })
+    .exec(function (err, user){
+      if (err) return next(err);
+      if (!user) {
+        const error = new Error('User not found.');
+        error.status = 401;
+        return next(error);
+      }
+
+      // this compares the hashes of the user input and what is stored in the database
+      return bcrypt.compare(password, user.password, (err, result) => {
+        if (result === true) {
+          return next(null, user);
+        }
+        return next();
+      });
+    });
+};
+
+
 const User = mongoose.model('User', UserSchema);
 module.exports = User;
