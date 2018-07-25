@@ -3,11 +3,13 @@ const bcrypt = require('bcrypt');
 
 const { Schema } = mongoose;
 
+// This is where a  user is defined
 const UserSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
 });
 
+// This function hashes the user's password before they get saved to the database
 UserSchema.pre('save', function(next) {
   let user = this;
 
@@ -18,6 +20,7 @@ UserSchema.pre('save', function(next) {
     return next();
   });
 });
+
 
 const User = mongoose.model('User', UserSchema);
 module.exports = User;
