@@ -8,14 +8,11 @@ const User = require('../models/user');
 const auth = require('./helpers/auth');
 
 // middleware function that sets up layout variables requiring user id
-// router.use((req, res, next) =>{
-//   // { layout: 'userLayout.hbs' }
-//   res.locals.title = 'Schedule-Me';
-// });
-
 router.use((req, res, next) => {
   res.locals.currentUserId = req.session.userId;
   res.locals.userName = req.session.userN;
+  res.locals.title = 'Schedule-Me';
+  res.locals.layout= 'userLayout.hbs';
 
   next();
 });
