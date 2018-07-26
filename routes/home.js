@@ -7,6 +7,6 @@ const router = express.Router();
 const User = require('../models/user');
 
 /* GET the home page */
-router.get('/home', (req, res, next) => {
+router.get('/', (req, res, next) => {
   res.render('home/home');
 });
