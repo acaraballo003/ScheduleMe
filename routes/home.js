@@ -19,10 +19,10 @@ router.use((req, res, next) => {
 
 /* GET the home page */
 router.get('/', auth.requireLogin, (req, res, next) => {
-  console.log('\nTrying to render the home page\n');
   // const currentUserId = req.session.userId;
   res.render('home/home');
 });
+
 
 // router.get('/', (req, res, next) => {
 //   console.log('\nTrying to render the home page\n');
