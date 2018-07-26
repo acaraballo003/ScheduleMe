@@ -7,6 +7,7 @@ const { Schema } = mongoose;
 const UserSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
+  classes: [{ type: Schema.Types.ObjectId, ref: 'Class' }],
 });
 
 // This function hashes the user's password before they get saved to the database
