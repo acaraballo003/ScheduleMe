@@ -30,7 +30,8 @@ router.post('/login', (req, res, next) => {
       return next(nextError);
     }
 
-    req.session.userID = user._id;
+    req.session.userId = user._id;
+    req.session.userN = user.username;
 
     return res.redirect('/home');
   });
