@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
+// middle-ware function that sets up layout variables that require id
+router.use((req, res, next) => {
+  res.locals.title = 'ScheduleMe';
+  res.locals.currentUserId = req.session.userId;
+
+  next();
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Schedule-Me' });
@@ -28,8 +36,9 @@ router.post('/login', (req, res, next) => {
   });
 });
 
-router.get('/home', (req, res, next) => {
-  res.render('home/home');
-});
+/* GET home page */
+// router.get('/home', (req, res, next) => {
+//   res.render('home/home');
+// });
 
 module.exports = router;
