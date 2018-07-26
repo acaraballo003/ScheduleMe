@@ -24,8 +24,9 @@ router.post('/login', (req, res, next) => {
 
     req.session.userID = user._id;
 
-    return res.redirect('/shedule/welcome');
+    return res.redirect('/home');
   });
 });
+
 
 module.exports = router;
