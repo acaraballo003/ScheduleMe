@@ -9,15 +9,16 @@ router.get('/new', auth.requireLogin, (req, res, next) => {
   // console.log('\nTrying to render the new page\n');
   res.render('classes/new');
 });
+
 /* POST - create a class */
-// router.post('/', (req, res, next) => {
-//   let class = new Class(req.body);
-//
-//   class.save(function(err, user){
-//     if (err) console.log(err);
-//
-//     res.redirect('/home')
-//   });
-// });
+router.post('/', (req, res, next) => {
+  const newClass = new Class(req.body);
+
+  newClass.save(function(err, newClass) {
+    if (err) console.log(err);
+
+    res.redirect('/home');
+  });
+});
 
 module.exports = router;
