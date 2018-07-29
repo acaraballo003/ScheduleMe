@@ -5,11 +5,14 @@ const Class = require('../models/class');
 const home = require('./home');
 const auth = require('./helpers/auth');
 
-/* Brings over local variables that were used in home router */ 
+/* Brings over local variables that were used in home router */
 router.use(home);
 
 /* GET new.hbs for a class */
 router.get('/new', auth.requireLogin, (req, res, next) => {
+  // console.log('\n');
+  // console.log(res.locals.userName);
+  // console.log('\n');
   res.render('classes/new');
 });
 

@@ -24,7 +24,7 @@ router.post('/', (req, res, next) => {
   user.save(function(err, user) {
     if (err) console.log(err);
     // redirects user back to the welcome page
-    res.redirect('../');
+    res.redirect('../login');
   });
 });
 

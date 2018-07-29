@@ -32,6 +32,7 @@ router.post('/login', (req, res, next) => {
 
     req.session.userId = user._id;
     req.session.userN = user.username;
+    req.session.classes = user.classes;
 
     return res.redirect('/home');
   });
