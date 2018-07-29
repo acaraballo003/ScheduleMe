@@ -52,7 +52,7 @@ POST '/newclass' - adds a class to the user's list of classes that they're inter
 
 
 ## Other
-Encrypting package to encrypt user passwords (BCRYPT DID NOT WORK ON MY COMPUTER)
+Encrypting package to encrypt user passwords
 
 ### Concerns:
 How do I keep checking for conflicts short? I don't want to iterate through a gigantic list for every new class. (asynchronus functions maybe.) 
@@ -71,7 +71,9 @@ Implement adding / deleting classes
 Have a usable build where users are able to sign up & login and view the home page as well as add classes.
 
 ## Week 2 - Feature Complete
-### Monday
+### Monday 
+Connect classes to user so that each user has access to theoir own classes
+Finish updating the Class model do that it can include start time and end time as well as days
 ### Tuesday
 ### Wednesday
 ### Thursday
