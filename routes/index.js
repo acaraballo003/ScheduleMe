@@ -48,7 +48,7 @@ router.get('/logout', (req, res, next) => {
     });
   }
 
-  return res.redirect('/');
+  res.redirect('/');
 });
 
 /* GET home page */
