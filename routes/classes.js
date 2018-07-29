@@ -1,3 +1,6 @@
+/*
+* This file handles the creation of classes 
+*/
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
@@ -10,16 +13,13 @@ router.use(home);
 
 /* GET new.hbs for a class */
 router.get('/new', auth.requireLogin, (req, res, next) => {
-  // console.log('\n');
-  // console.log(res.locals.userName);
-  // console.log('\n');
   res.render('classes/new');
 });
 
 /* POST - create a class */
 router.post('/', (req, res, next) => {
   let newClass = new Class(req.body);
-
+  // save the class to the database here
   newClass.save(function(err, newClass) {
     if (err) console.log(err);
 

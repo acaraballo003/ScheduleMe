@@ -18,11 +18,10 @@ router.get('/new', (req, res, next) => {
 
 // create a User
 router.post('/', (req, res, next) => {
-  console.log(req.body);
   const user = new User(req.body);
 
   user.save(function(err, user) {
-    if (err) console.log(err);
+    if (err) console.err(err);
     // redirects user back to the welcome page
     res.redirect('../login');
   });

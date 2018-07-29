@@ -21,19 +21,12 @@ router.use((req, res, next) => {
 
 /* GET the home page */
 router.get('/', auth.requireLogin, (req, res, next) => {
-  // const currentUserId = req.session.userId;
-  // res.render('home/home');
-  Class.find({}, 'title', function(err, classes) {
-    if (err) console.error(err);
-
-    res.render('home/home', { classes });
-  });
+  res.render('home/home');
+  // Class.find({}, 'title', function(err, classes) {
+  //   if (err) console.error(err);
+  //
+  //   res.render('home/home', { classes });
+  // });
 });
-
-
-// router.get('/', (req, res, next) => {
-//   console.log('\nTrying to render the home page\n');
-//   res.render('home/home');
-// });
 
 module.exports = router;
