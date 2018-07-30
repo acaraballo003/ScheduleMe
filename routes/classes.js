@@ -1,5 +1,5 @@
 /*
-* This file handles the creation of classes 
+* This file handles the creation of classes
 */
 const express = require('express');
 const router = express.Router();
@@ -13,6 +13,7 @@ router.use(home);
 
 /* GET new.hbs for a class */
 router.get('/new', auth.requireLogin, (req, res, next) => {
+  console.log(res.locals.cList);
   res.render('classes/new');
 });
 
@@ -20,6 +21,9 @@ router.get('/new', auth.requireLogin, (req, res, next) => {
 router.post('/', (req, res, next) => {
   let newClass = new Class(req.body);
   // save the class to the database here
+  console.log(newClass);
+  console.log(res.locals.cList.unshift(newClass));
+  console.log(res.locals.cList);
   newClass.save(function(err, newClass) {
     if (err) console.log(err);
 
