@@ -20,13 +20,14 @@ router.use((req, res, next) => {
 
 /* GET the home page */
 router.get('/', auth.requireLogin, (req, res, next) => {
-  console.log(req.session.classes);
-  res.render('home/home');
+  // res.render('home/home');
   // Class.find({}, 'title', function(err, classes) {
   //   if (err) console.error(err);
   //
   //   res.render('home/home', { classes });
   // });
+
+  
 });
 
 module.exports = router;

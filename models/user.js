@@ -13,7 +13,8 @@ const UserSchema = new Schema({
 // This function hashes the user's password before they get saved to the database
 UserSchema.pre('save', function(next) {
   let user = this;
-
+  if(!user.isModified('password')) return next();
+  // consider adding genSalt in the future
   bcrypt.hash(user.password, 10, function (err, hash) {
     if (err) return next(err);
 
