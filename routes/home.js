@@ -12,7 +12,6 @@ const auth = require('./helpers/auth');
 router.use((req, res, next) => {
   res.locals.currentUserId = req.session.userId;
   res.locals.userName = req.session.userN;
-  res.locals.cList = req.session.classes;
   res.locals.title = 'Schedule-Me';
   res.locals.layout = 'userLayout.hbs';
 
@@ -21,6 +20,7 @@ router.use((req, res, next) => {
 
 /* GET the home page */
 router.get('/', auth.requireLogin, (req, res, next) => {
+  console.log(req.session.classes);
   res.render('home/home');
   // Class.find({}, 'title', function(err, classes) {
   //   if (err) console.error(err);

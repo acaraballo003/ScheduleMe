@@ -19,16 +19,39 @@ router.get('/new', auth.requireLogin, (req, res, next) => {
 
 /* POST - create a class */
 router.post('/', (req, res, next) => {
-  let newClass = new Class(req.body);
-  // save the class to the database here
-  console.log(newClass);
-  console.log(res.locals.cList.unshift(newClass));
-  console.log(res.locals.cList);
-  newClass.save(function(err, newClass) {
-    if (err) console.log(err);
+  // find the user in the database
+  User.findById(req.session.userId).then(user => {
+    // data returns the user but I do not know how to deal with promises
+    console.log(user);
+    // create the new class
+    let newClass = new Class(req.body);
+    // add the new class to the user's class list
+    user.classes.unshift(newClass);
+    // save the user to the database (**** this is causing login errors)
+    user.save(function(err, user){
+      if (err) console.error(err);
 
-    res.redirect('/home');
+      newClass.save(function(err, newClass) {
+        if (err) console.error(err);
+
+        res.redirect('/home');
+      });
+    });
+    // save the class to the database
+    // redirect to the homepage
+  }, err => {
+    console.error(err);
   });
+  // let newClass = new Class(req.body);
+  // console.log(newClass);
+  // res.locals.cList.unshift(newClass);
+  // console.log('\n\n');
+  // // console.log(res.locals.cList);
+  // newClass.save(function(err, newClass) {
+  //   if (err) console.log(err);
+  //
+  //   res.redirect('/home');
+  // });
 });
 
 module.exports = router;
