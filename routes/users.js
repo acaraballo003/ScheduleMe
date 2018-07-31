@@ -22,7 +22,7 @@ router.post('/', (req, res, next) => {
 
   user.save(function(err, user) {
     if (err) console.err(err);
-    // redirects user back to the welcome page
+    // redirects user back to the login page
     res.redirect('../login');
   });
 });

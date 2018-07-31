@@ -2,13 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
-// middle-ware function that sets up layout variables that require id
-// router.use((req, res, next) => {
-//   res.locals.title = 'Schedule-Me';
-//   res.locals.currentUserId = req.session.userId;
-//
-//   next();
-// });
 
 /* GET Welcome page. */
 router.get('/', function(req, res, next) {
@@ -50,9 +43,5 @@ router.get('/logout', (req, res, next) => {
   res.redirect('/');
 });
 
-/* GET home page */
-// router.get('/home', (req, res, next) => {
-//   res.render('home/home');
-// });
 
 module.exports = router;

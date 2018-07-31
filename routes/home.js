@@ -20,6 +20,7 @@ router.use((req, res, next) => {
 
 /* GET the home page */
 router.get('/', auth.requireLogin, (req, res, next) => {
+  // populates the homepage with the user's classes
   User.findById(req.session.userId).populate('classes').exec((err, user) => {
     res.render('home/home', { user: user, classes: user.classes})
   });

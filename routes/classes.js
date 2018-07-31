@@ -9,11 +9,7 @@ const home = require('./home');
 const auth = require('./helpers/auth');
 
 /* Brings over local variables that were used in home router */
-router.use((req, res, next) => {
-  res.locals.layout = 'userLayout.hbs';
-
-  next();
-});
+router.use(home);
 
 /* GET new.hbs for a class */
 router.get('/new', auth.requireLogin, (req, res, next) => {
@@ -28,8 +24,7 @@ router.post('/', (req, res, next) => {
     let newClass = new Class(req.body);
     // add the new class to the user's class list
     user.classes.unshift(newClass);
-    // console.log(user.classes);
-    // save the user to the database (**** this is causing login errors)
+    // save the user to the database
     user.save(function(err, user){
       if (err) console.error(err);
 
@@ -44,16 +39,7 @@ router.post('/', (req, res, next) => {
   }, err => {
     console.error(err);
   });
-  // let newClass = new Class(req.body);
-  // console.log(newClass);
-  // res.locals.cList.unshift(newClass);
-  // console.log('\n\n');
-  // // console.log(res.locals.cList);
-  // newClass.save(function(err, newClass) {
-  //   if (err) console.log(err);
-  //
-  //   res.redirect('/home');
-  // });
+  
 });
 
 module.exports = router;
