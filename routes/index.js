@@ -40,7 +40,6 @@ router.post('/login', (req, res, next) => {
 
 /* GET logout */
 router.get('/logout', (req, res, next) => {
-  // console.log('\nI\'m logging out!\n');
   if (req.session) {
     req.session.destroy((err) => {
       if (err) return next(err);
