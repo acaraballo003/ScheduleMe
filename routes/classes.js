@@ -20,14 +20,11 @@ router.get('/new', auth.requireLogin, (req, res, next) => {
 router.post('/', (req, res, next) => {
   // find the user in the database
   User.findById(req.session.userId).then(user => {
-    // data returns the user but I do not know how to deal with promises
-    console.log(user);
-    console.log('\n');
     // create the new class
     let newClass = new Class(req.body);
     // add the new class to the user's class list
     user.classes.unshift(newClass);
-    console.log(user.classes);
+    // console.log(user.classes);
     // save the user to the database (**** this is causing login errors)
     user.save(function(err, user){
       if (err) console.error(err);

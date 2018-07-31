@@ -5,6 +5,8 @@
 <div>
   <p>Show ya classes here</p>
   <ul>
-    <li>hi</li>
+    {{#each userClasses as |class|}}
+    <li>{{class}}</li>
+    {{/each}}
   </ul>
 </div>
