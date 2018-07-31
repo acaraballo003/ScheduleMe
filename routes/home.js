@@ -13,47 +13,16 @@ router.use((req, res, next) => {
   res.locals.currentUserId = req.session.userId;
   res.locals.userName = req.session.userN;
   res.locals.title = 'Schedule-Me';
-  res.locals.layout = 'userLayout.hbs';
+  res.locals.layout = 'homeLayout.hbs';
 
   next();
 });
 
 /* GET the home page */
 router.get('/', auth.requireLogin, (req, res, next) => {
-  // res.render('home/home');
-  // Class.find({}, 'title', function(err, classes) {
-  //   if (err) console.error(err);
-  //
-  //   res.render('home/home', { classes });
-  // });
-  // User.findById(req.session.userId).then(user =>{
-  //   // this enables the hbs file to iterate through the user's classes
-  //   var userClasses = [];
-  //   for(var i = 0; i < user.classes.length; i+=1){
-  //     Class.findById(user.classes[i]).then(data => {
-  //       // console.log(data);
-  //       userClasses.unshift(data);
-  //     }, err =>{
-  //       console.error(err);
-  //     });
-  //   }
-  //   console.log(req.session.classes);
-  //   res.render('home/home', { userClasses });
-  // }, err =>{
-  //   console.error(err);
-  // });
-
-    var userClasses = [];
-    for(var i = 0; i < req.session.classes.length; i+=1){
-      Class.findById(req.session.classes[i]).then(data => {
-        // console.log(data);
-        userClasses.unshift(data);
-      }, err =>{
-        console.error(err);
-      });
-    }
-    console.log(userClasses);
-    res.render('home/home', { userClasses });
+  User.findById(req.session.userId).populate('classes').exec((err, user) => {
+    res.render('home/home', { user: user, classes: user.classes})
+  });
 
 });
 

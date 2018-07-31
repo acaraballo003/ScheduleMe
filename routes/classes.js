@@ -9,7 +9,11 @@ const home = require('./home');
 const auth = require('./helpers/auth');
 
 /* Brings over local variables that were used in home router */
-router.use(home);
+router.use((req, res, next) => {
+  res.locals.layout = 'userLayout.hbs';
+
+  next();
+});
 
 /* GET new.hbs for a class */
 router.get('/new', auth.requireLogin, (req, res, next) => {
