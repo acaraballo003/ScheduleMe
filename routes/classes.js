@@ -36,10 +36,10 @@ router.post('/', (req, res, next) => {
     });
     // save the class to the database
     // redirect to the homepage
-  }, err => {
+  }).catch( err => {
     console.error(err);
   });
-  
+
 });
 
 module.exports = router;
