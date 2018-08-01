@@ -24,8 +24,6 @@ will also be able to clear their list of classes, to add more classes, or subtra
 ### User
 username - String
 
-email - String
-
 password - String
 
 classes - array of Class objects
@@ -75,8 +73,11 @@ Have a usable build where users are able to sign up & login and view the home pa
 Connect classes to user so that each user has access to theoir own classes
 Finish updating the Class model do that it can include start time and end time as well as days
 ### Tuesday
+Get classes properly rendered to users
 ### Wednesday
+Enable users to add a class to the schedule view & start checking for time conflicts
 ### Thursday
+Finish checking for time conflicts
 ### Friday
 Have all core features complete and working without bugs -> conflict check, deleting all classes at once,
 
