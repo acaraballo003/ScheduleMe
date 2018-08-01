@@ -1,9 +1,5 @@
-<!--
--
-- This is what's rendered when a new user wants to add a class
--
--->
-<div>
+
+<div class="class-form">
 
   <form class="pure-form pure-form-stacked" action="/classes" method="post">
     <fieldset>
@@ -12,11 +8,11 @@
       <label for="title">Title</label>
       <input id="title" name="title" type="text" placeholder="Class Title">
 
-      <label for="start_time">Start Date</label>
-      <input id="start_time" type="time" name="start_time">
+      <label for="start_time">Start Time</label>
+      <input id="start_time" type="time" name="start_time" min="8:00">
 
-      <label for="end_time">End Date</label>
-      <input id="end_time" type="time" name="end_time">
+      <label for="end_time">End Time</label>
+      <input id="end_time" type="time" name="end_time" max="21:00">
 
       <button type="submit" class="pure-button pure-button-primary">Submit</button>
     </fieldset>

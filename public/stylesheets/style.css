@@ -8,3 +8,6 @@ a {
 }
 
 /* class selectors */
+.class-form {
+  padding: 2em;
+}
