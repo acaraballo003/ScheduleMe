@@ -24,8 +24,6 @@ will also be able to clear their list of classes, to add more classes, or subtra
 ### User
 username - String
 
-email - String
-
 password - String
 
 classes - array of Class objects
@@ -52,7 +50,7 @@ POST '/newclass' - adds a class to the user's list of classes that they're inter
 
 
 ## Other
-Encrypting package to encrypt user passwords (BCRYPT DID NOT WORK ON MY COMPUTER)
+Encrypting package to encrypt user passwords
 
 ### Concerns:
 How do I keep checking for conflicts short? I don't want to iterate through a gigantic list for every new class. (asynchronus functions maybe.) 
@@ -71,10 +69,15 @@ Implement adding / deleting classes
 Have a usable build where users are able to sign up & login and view the home page as well as add classes.
 
 ## Week 2 - Feature Complete
-### Monday
+### Monday 
+Connect classes to user so that each user has access to theoir own classes
+Finish updating the Class model do that it can include start time and end time as well as days
 ### Tuesday
+Get classes properly rendered to users
 ### Wednesday
+Enable users to add a class to the schedule view & start checking for time conflicts
 ### Thursday
+Finish checking for time conflicts
 ### Friday
 Have all core features complete and working without bugs -> conflict check, deleting all classes at once,
 
