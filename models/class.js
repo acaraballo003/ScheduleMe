@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 // This is where a class gets defined
 const ClassSchema = new Schema({
   title: { type: String, required: true },
-  // days: { type: Array, required: false },
+  days: { type: Array, required: true },
   start_time: { type: String },
   end_time: { type: String },
 });
