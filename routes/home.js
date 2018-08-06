@@ -27,4 +27,17 @@ router.get('/', auth.requireLogin, (req, res, next) => {
 
 });
 
+router.delete('/', auth.requireLogin, (req, res, next) => {
+  User.findByIdAndUpdate(req.session.userId).then((user) =>{
+    Class.deleteMany({_id: {$in: user.classes }}).then(() => {
+      // db.survey.update({$pull: {classes: {$in: user.classes}}});
+      user.classes = [];
+      user.save(function(err, user) {
+        if (err) console.err(err);
+        res.redirect('/home');
+      });
+    })
+  })
+  // User.findByIdAndUpdate(req.session.userId, {$set: {classes: []}}).then(() => {});
+})
 module.exports = router;
