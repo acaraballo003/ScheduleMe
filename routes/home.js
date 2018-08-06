@@ -36,8 +36,8 @@ router.delete('/', auth.requireLogin, (req, res, next) => {
         if (err) console.err(err);
         res.redirect('/home');
       });
-    })
-  })
+    });
+  });
   // User.findByIdAndUpdate(req.session.userId, {$set: {classes: []}}).then(() => {});
 })
 module.exports = router;

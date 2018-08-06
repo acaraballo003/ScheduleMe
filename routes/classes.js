@@ -23,8 +23,7 @@ router.post('/', (req, res, next) => {
     // create the new class
     let newClass = new Class(req.body);
     // check for conflicts here before saving the class
-    conflictCheck(newClass, user.classes).then(myResponse => {
-      console.log(myResponse);
+    conflictCheck(newClass, user.classes).then(conflictResponse => {
       user.classes.unshift(newClass);
       // save the user to the database
       user.save(function(err, user){
@@ -39,7 +38,6 @@ router.post('/', (req, res, next) => {
         });
       });
     }).catch( err => {
-      console.log("\noh boy.\n");
       console.error(err);
       res.redirect('/home');
     });
@@ -53,14 +51,24 @@ function conflictCheck(nClass, classList) {
   return new Promise((resolve, reject) => {
     // iterate through the list of classes
     for( let i = 0; i < classList.length; i+=1 ) {
-      // iterate through the new class's days and check if it's in the class
-      // we are currently on
+      // If there are no days, it's invalid for now
+      if(nClass.days.length == 0) reject();
+
+      // else we just wanna iterate through days first to check for conflicts
       for( let j = 0; j < nClass.days.length; j+=1 ) {
         // if this is false, just keep move to the next day
         if( !classList[i].days.includes(nClass.days[j]) ){
           console.log("all good so far");
         }
         else{
+          let validStartH = parseInt(nClass.start_time.split(':')[0]);
+          let validStartm = parseInt(nClass.start_time.split(':')[2]);
+          let validEndH = parseInt(nClass.end_time.split(':')[0]);
+          let validEndm = parseInt(nClass.end_time.split(':')[2]);
+          // check if the new class's times are even valid
+          if(validStartH > validEndH || (validStartH == validEndH && validStartm >= validEndm)){
+            reject();
+          }
           // check for conflicts in time if classes are on the same day
           if( timeCheck(nClass, classList[i]) == false ) {
             reject();
