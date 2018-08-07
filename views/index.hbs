@@ -1,4 +1,14 @@
 <h1>Welcome to {{title}}</h1>
-<a class="pure-button" href="/login">Login</a>
-or
-<a class="pure-button" href="/users/new">Sign Up</a>
+
+<form class="pure-form pure-form-stacked" action="/login" method="post">
+  <fieldset>
+    <!-- <legend>Sign Up</legend> -->
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" placeholder="username">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" placeholder="password">
+
+    <button type="submit" class="pure-button pure-button-primary">Login</button>
+  </fieldset>
+</form>

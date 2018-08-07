@@ -1,13 +1,20 @@
-body {
-  padding: 50px;
+main {
+  display: grid;
+  padding: 3em;
   font: 15px "Arial", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+/* userLayout Class Selectors */
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  /* background-color: rgba(233,171,88,.5); */
+  padding: 2em;
 }
 
-/* class selectors */
-.class-form {
-  padding: 2em;
+.nav-links {
+  display: flex;
+  align-items: center;
 }
