@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="heading">
+    <h3>Hello, {{userName}}!</h3>
+  </div>
+
+  <div class="class-button">
+    <!-- Take the user to the class view -->
+    <a class="pure-button" href="../classes/new">Add class</a>
+  </div>
+
+  <!-- <div class="schedule-button">
+    <a class="pure-button" href="../schedule/view">Create Your Schedule</a>
+  </div> -->
+
+  <div class="user-classes">
+    <p>{{userName}}'s classes</p>
+    <ul>
+      {{#each classes as |class|}}
+      <li>{{class.title}}: {{class.start_time}} - {{class.end_time}}</li>
+      {{/each}}
+    </ul>
+
+    <form class="delete-btn" method="POST" action="/home?_method=DELETE">
+      <button class="pure-button" type="submit" name="delete-btn">Delete your Class List</button>
+    </form>
+  </div>
+
+
+
+</div>

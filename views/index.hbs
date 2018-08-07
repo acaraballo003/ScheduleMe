@@ -1,2 +1,14 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Welcome to {{title}}</h1>
+
+<form class="pure-form pure-form-stacked" action="/login" method="post">
+  <fieldset>
+    <!-- <legend>Sign Up</legend> -->
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" placeholder="username">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" placeholder="password">
+
+    <button type="submit" class="pure-button pure-button-primary">Login</button>
+  </fieldset>
+</form>
