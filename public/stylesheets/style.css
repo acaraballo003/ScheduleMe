@@ -1,12 +1,24 @@
-main {
-  display: grid;
-  padding: 3em;
+body {
+  min-height: 100vh;
   font: 15px "Arial", Helvetica, Arial, sans-serif;
 }
 
-/* userLayout Class Selectors */
+main {
+  padding: 3em;
+}
+
+/* Grid Layout for body */
+body {
+  display: grid;
+  grid-template-areas: "nav"
+                        "main"
+                        "footer"
+}
+
+/* Class Selectors */
 .navigation {
   display: flex;
+  grid-area: nav;
   justify-content: space-around;
   align-items: center;
 
@@ -17,4 +29,14 @@ main {
 .nav-links {
   display: flex;
   align-items: center;
+}
+
+.welcome {
+  grid-area: main;
+  display: grid;
+  grid-template-areas: "left mid right"
+}
+
+.welc-form {
+  grid-area: mid;
 }

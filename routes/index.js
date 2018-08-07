@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 /* GET login page */
 router.get('/login', (req, res, next) => {
-  res.render('login');
+  res.render('index', { title: 'Schedule-Me' });
 });
 
 /* POST login */
