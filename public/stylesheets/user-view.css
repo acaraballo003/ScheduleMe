@@ -1,0 +1,21 @@
+/* Element selectors */
+
+/* Class Selectors */
+.home-container {
+  grid-area: main;
+  display: grid;
+  grid-template-areas: "left right";
+
+  min-height: 80vh;
+  /* background-color: blue; */
+}
+
+.left {
+  grid-area: left;
+  text-align: center;
+}
+
+.user-classes {
+  grid-area: right;
+  justify-content: center;
+}

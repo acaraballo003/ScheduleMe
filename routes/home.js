@@ -13,7 +13,6 @@ router.use((req, res, next) => {
   res.locals.currentUserId = req.session.userId;
   res.locals.userName = req.session.userN;
   res.locals.title = 'Schedule-Me';
-  res.locals.layout = 'userLayout.hbs';
 
   next();
 });
