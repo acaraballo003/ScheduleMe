@@ -1,21 +1,71 @@
 /* Element selectors */
 
+h3, p {
+  padding-left: 20px;
+}
+
 /* Class Selectors */
 .home-container {
   grid-area: main;
   display: grid;
-  grid-template-areas: "left right";
+  grid-template-areas: "left right right";
 
-  min-height: 80vh;
+  padding: 10px 10px;
+
   /* background-color: blue; */
+}
+
+/* Styling for the left side of the pg */
+input[type="time"]{
+  width: 100%;
+  
+}
+
+
+label[for="days"] {
+  display:block;
+  float: left;
+  width: 50%;
+  margin-bottom: 15px;
 }
 
 .left {
   grid-area: left;
-  text-align: center;
+
+  padding: 10px;
+  /* width: 200px; */
+}
+
+.class-form {
+  width: 200px;
+  padding: 20px;
+
+  background-color: rgb(220, 220, 220);
+  border-radius: 20px;
+}
+
+.add-class-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+
+/* Styling for the right side of the pg */
+
+li {
+  padding-bottom: 10px;
 }
 
 .user-classes {
+  padding: 10px;
+
   grid-area: right;
-  justify-content: center;
+  grid-template-areas: "Morning"
+                        "Noon";
+
+}
+
+.delete-btn {
+  padding-left: 20px;
 }
