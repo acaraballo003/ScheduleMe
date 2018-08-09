@@ -10,8 +10,8 @@
         <fieldset>
           <legend>New Class</legend>
 
-          <label for="title">Title</label>
-          <input id="title" name="title" type="text" placeholder="Class Title">
+          <label>Class Title</label>
+          <input id="title" name="title" type="text">
 
           <label for="start_time">Start Time</label>
           <input id="start_time" type="time" name="start_time" min="08:00" value="08:00" required>
@@ -20,11 +20,11 @@
           <input id="end_time" type="time" name="end_time" max="21:00" required>
 
           <label>Days the Class Takes Place</label>
-            <label for="days"><input class="weekdays" id="days" name="days" value=1 type="checkbox">Monday</label>
-            <label for="days"><input class="weekdays" id="days" name="days" value=2 type="checkbox">Tuesday</label>
-            <label for="days"><input class="weekdays" id="days" name="days" value=3 type="checkbox">Wednesday</label>
-            <label for="days"><input class="weekdays" id="days" name="days" value=4 type="checkbox">Thursday</label>
-            <label for="days"><input class="weekdays" id="days" name="days" value=5 type="checkbox">Friday</label>
+            <label for="days"><input class="weekdays" id="days" name="days" value=Monday type="checkbox">Monday</label>
+            <label for="days"><input class="weekdays" id="days" name="days" value=Tuesday type="checkbox">Tuesday</label>
+            <label for="days"><input class="weekdays" id="days" name="days" value=Wednesday type="checkbox">Wednesday</label>
+            <label for="days"><input class="weekdays" id="days" name="days" value=Thursday type="checkbox">Thursday</label>
+            <label for="days"><input class="weekdays" id="days" name="days" value=Friday type="checkbox">Friday</label>
 
           <button type="submit" class="pure-button pure-button-primary add-class-btn">Add Class</button>
         </fieldset>
@@ -35,13 +35,18 @@
   </div>
 
 
-  <div class="user-classes">
-    <p>{{userName}}'s classes</p>
-    <ul>
+  <div class="right">
+    <h3 for="right">{{userName}}'s classes</h3>
+
+    <div class="class-container">
       {{#each classes as |class|}}
-      <li>{{class.title}}: {{class.start_time}} - {{class.end_time}}</li>
+        <div class="class-card">
+          <p><b>{{class.title}}</b></p>
+          <p>{{class.start_time}} - {{class.end_time}}<p>
+          <p>{{class.days}}</p>
+        </div>
       {{/each}}
-    </ul>
+    </div>
 
     <form class="delete-btn" method="POST" action="/home?_method=DELETE">
       <button class="pure-button" type="submit" name="delete-btn">Delete Your Class List</button>

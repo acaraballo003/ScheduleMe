@@ -1,15 +1,15 @@
-/* Element selectors */
+/* body styling */
 
-h3, p {
+h3 {
   padding-left: 20px;
 }
 
-/* Class Selectors */
 .home-container {
   grid-area: main;
   display: grid;
   grid-template-areas: "left right right";
 
+  grid-template-columns: 300px 1fr;
   padding: 10px 10px;
 
   /* background-color: blue; */
@@ -18,7 +18,7 @@ h3, p {
 /* Styling for the left side of the pg */
 input[type="time"]{
   width: 100%;
-  
+
 }
 
 
@@ -53,19 +53,39 @@ label[for="days"] {
 
 /* Styling for the right side of the pg */
 
-li {
-  padding-bottom: 10px;
-}
-
-.user-classes {
+.right {
   padding: 10px;
 
   grid-area: right;
-  grid-template-areas: "Morning"
-                        "Noon";
 
 }
 
+h3[for="right"] {
+  border-bottom: 1px solid;
+}
+
 .delete-btn {
+  /* grid-area: button; */
+  margin-top: 20px;
   padding-left: 20px;
+}
+
+.class-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.class-card {
+  /* grid-area: class; */
+  justify-content: space-around;
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+
+
+  height: 120px;
+  width: 200px;
+  background-color: rgb(220, 220, 220);
+  border-radius: 20px;
 }
