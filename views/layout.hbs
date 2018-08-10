@@ -16,7 +16,11 @@
   <body>
     <!-- navbar -->
     <div class="pure-menu pure-menu-horizontal navigation">
-      <a href="#" class="pure-menu-heading pure-menu-link">Schedule-Me</a>
+      {{#if currentUserId}}
+        <a href="/home" class="pure-menu-heading pure-menu-link">Schedule-Me</a>
+      {{else}}
+        <a href="/" class="pure-menu-heading pure-menu-link">Schedule-Me</a>
+      {{/if}}
 
       <ul class="pure-menu-list nav-links">
         {{# if currentUserId}}
@@ -31,6 +35,6 @@
     <main>
       {{{body}}}
     </main>
-    
+
   </body>
 </html>
