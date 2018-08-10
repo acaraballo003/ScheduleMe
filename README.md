@@ -1,6 +1,6 @@
 # ScheduleMe
-A web app that allows users to check for time conflicts between classes that they want to take
-instead of having to sit down and check for conflicts themselves.
+A web app that checks for time conflicts between a user's classes that they want to take
+rather than having to sit down and check for conflicts themselves.
 
 ## Audience
 The audience would primarily be students who don't have access to scheduling software via their school
@@ -26,7 +26,7 @@ username - String
 
 password - String
 
-classes - array of Class objects
+classes - array of Class objects (ref)
 
 ### Class
 name - String
@@ -41,19 +41,22 @@ end-time - "" "" "" ""
 
 ## Routes
 GET '/' - renders the Welcome page where users will be required to sign in
-GET '/home' - renders the home screen after users sign in
-GET '/newclass' - renders a page where users will be able to create a new class
-GET '/schedule' - renders a page where users will be able to see both a list of their classes and add a class from their list of classes
-                  to the schedule
+GET '/home' - renders the home screen after users sign in where users are able to see their classes
+              and create new ones
+GET '/logout' - destroys a user's session and redirects them back to the welcome page
+
                   
-POST '/newclass' - adds a class to the user's list of classes that they're interested in
+POST '/login' - requests the user's homepage
+POST '/class/new' - saves a class to the user's list of classes after checking for time conflicts
+POST '/delete' - pulls a user's classes from the database and wipes their list of classes clean
+
 
 
 ## Other
 Encrypting package to encrypt user passwords
 
 ### Concerns:
-How do I keep checking for conflicts short? I don't want to iterate through a gigantic list for every new class. (asynchronus functions maybe.) 
+How do I keep checking for conflicts short? I don't want to iterate through a gigantic list for every new class. (A: Promises) 
 
 # Weekly Milestones
 ## Week 1 - Usable Build
@@ -82,3 +85,8 @@ Finish checking for time conflicts
 Have all core features complete and working without bugs -> conflict check, deleting all classes at once,
 
 ## Week 3 - Polishing
+
+# Future Features
+Enable users to delete individual classes()
+Enable users to add classes to a list of interested ones so automatic conflict checking doesn't happen
+Alert the user of time conflicts
