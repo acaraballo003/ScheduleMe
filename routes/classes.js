@@ -1,5 +1,6 @@
 /*
-* This file handles the creation of classes
+* This file handles the creation of classes as well as checking
+* for conflicts under the hood
 */
 const express = require('express');
 const router = express.Router();

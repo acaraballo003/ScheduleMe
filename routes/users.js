@@ -1,3 +1,6 @@
+/*
+* Handles the creation of new users
+*/
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
@@ -14,7 +17,7 @@ router.post('/', (req, res, next) => {
   user.save(function(err, user) {
     if (err) console.err(err);
     // redirects user back to the login page
-    res.redirect('../login');
+    res.redirect('/');
   });
 });
 

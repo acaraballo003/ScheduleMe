@@ -64,12 +64,12 @@ label[for="password"]{
   text-align: center;
 }
 
-.login-form {
+.user-form {
   margin: 0px auto;
   padding-top: 20px;
 
   padding: 1em;
-  height: 300px;
+  /* height: 300px; */
   width: 350px;
 
 
@@ -77,14 +77,14 @@ label[for="password"]{
   border-radius: 20px;
 }
 
-.welc-input {
+.user-input {
   width: 100%;
   height: 50px;
 
   border: 0;
 }
 
-.login-btn {
+.front-btn {
   margin-top: 2em;
   border-radius: 10px;
 
