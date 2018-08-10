@@ -23,35 +23,40 @@ will also be able to clear their list of classes, to add more classes, or subtra
 ## Models
 ### User
 username - String
-
+#
 password - String
-
+#
 classes - array of Class objects (ref)
-
+#
 ### Class
 name - String
-
+#
 days - array [m, t, w, tr, f]
-
+#
 start-time - String (that includes ':' && 'am' or 'pm')
-
+#
 end-time - "" "" "" ""
-
+#
 ## Views
 
 ## Routes
 GET '/' - renders the Welcome page where users will be required to sign in
+#
 GET '/home' - renders the home screen after users sign in where users are able to see their classes
               and create new ones
+#
 GET '/logout' - destroys a user's session and redirects them back to the welcome page
-
-                  
+#
+#                 
 POST '/login' - requests the user's homepage
+#
 POST '/class/new' - saves a class to the user's list of classes after checking for time conflicts
+#
 POST '/delete' - pulls a user's classes from the database and wipes their list of classes clean
-
-
-
+#
+#
+#
+#
 ## Other
 Encrypting package to encrypt user passwords
 
@@ -88,5 +93,7 @@ Have all core features complete and working without bugs -> conflict check, dele
 
 # Future Features
 Enable users to delete individual classes()
+#
 Enable users to add classes to a list of interested ones so automatic conflict checking doesn't happen
+#
 Alert the user of time conflicts
