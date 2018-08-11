@@ -20,7 +20,7 @@ router.use(home);
 /* POST - create a class */
 router.post('/', (req, res, next) => {
   // find the user in the database
-  User.findById(req.session.userId).populate('classes').then(user => {
+  User.findById(req.session.currentUserId).populate('classes').then(user => {
     // create the new class
     let newClass = new Class(req.body);
     // check for conflicts here before saving the class

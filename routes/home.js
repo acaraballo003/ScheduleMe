@@ -10,7 +10,7 @@ const auth = require('./helpers/auth');
 
 // middleware function that sets up layout variables requiring user id
 router.use((req, res, next) => {
-  res.locals.currentUserId = req.session.userId;
+  res.locals.currentUserId = req.session.currentUserId;
   res.locals.userName = req.session.userN;
   res.locals.title = 'Schedule-Me';
 
@@ -20,14 +20,15 @@ router.use((req, res, next) => {
 /* GET the home page */
 router.get('/', auth.requireLogin, (req, res, next) => {
   // populates the homepage with the user's classes
-  User.findById(req.session.userId).populate('classes').exec((err, user) => {
+  User.findById(req.session.currentUserId).populate('classes').exec((err, user) => {
     res.render('home/home', { user: user, classes: user.classes});
   });
 
 });
 
+
 router.delete('/', auth.requireLogin, (req, res, next) => {
-  User.findByIdAndUpdate(req.session.userId).then((user) =>{
+  User.findByIdAndUpdate(req.session.currentUserId).then((user) =>{
     Class.deleteMany({_id: {$in: user.classes }}).then(() => {
       // db.survey.update({$pull: {classes: {$in: user.classes}}});
       user.classes = [];
@@ -37,6 +38,6 @@ router.delete('/', auth.requireLogin, (req, res, next) => {
       });
     });
   });
-  // User.findByIdAndUpdate(req.session.userId, {$set: {classes: []}}).then(() => {});
+  // User.findByIdAndUpdate(req.session.currentUserId, {$set: {classes: []}}).then(() => {});
 })
 module.exports = router;

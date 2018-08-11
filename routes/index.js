@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 /* GET about page */
 router.get('/about', (req, res, next) => {
-  res.render('about', { title: 'Schedule-Me' });
+  res.render('about', { title: 'Schedule-Me', currentUserId: req.session.currentUserId });
 });
 
 
@@ -25,7 +25,7 @@ router.post('/login', (req, res, next) => {
       return next(nextError);
     }
 
-    req.session.userId = user._id;
+    req.session.currentUserId = user._id;
     req.session.userN = user.username;
     req.session.classes = user.classes;
 
