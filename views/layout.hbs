@@ -12,6 +12,7 @@
 
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/user-view.css' />
+    <link rel='stylesheet' href='/stylesheets/about.css' />
   </head>
   <body>
     <!-- navbar -->
@@ -23,6 +24,7 @@
       {{/if}}
 
       <ul class="pure-menu-list nav-links">
+        <li class="pure-menu-item"><a href="/about" class="pure-menu-link">About</a></li>
         {{# if currentUserId}}
           <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Logout</a></li>
         {{else}}

@@ -9,6 +9,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Schedule-Me' });
 });
 
+/* GET about page */
+router.get('/about', (req, res, next) => {
+  res.render('about', { title: 'Schedule-Me' });
+});
+
 
 /* POST login */
 router.post('/login', (req, res, next) => {

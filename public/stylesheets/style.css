@@ -91,9 +91,3 @@ label[for="password"]{
   height: 3em;
   width: 100%;
 }
-
-.back-btn {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}

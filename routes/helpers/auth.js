@@ -4,8 +4,8 @@ exports.requireLogin = (req, res, next) => {
   }
 
   const err = new Error('You must log in to view this page.');
-  console.log(err);
+  console.error(err);
   err.status = 401;
 
-  return res.redirect('/login');
+  return res.redirect('/');
 };
