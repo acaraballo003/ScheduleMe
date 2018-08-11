@@ -24,10 +24,11 @@
       {{/if}}
 
       <ul class="pure-menu-list nav-links">
-        <li class="pure-menu-item"><a href="/about" class="pure-menu-link">About</a></li>
         {{# if currentUserId}}
+          <li class="pure-menu-item"><a href="/about" class="pure-menu-link">About</a></li>
           <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Logout</a></li>
         {{else}}
+          <li class="pure-menu-item"><a href="/about" class="pure-menu-link">About</a></li>
           <li class="pure-menu-item"><a href="/users/new" class="pure-menu-link">Sign up</a></li>
         {{/if}}
 
